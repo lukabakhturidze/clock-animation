@@ -1,0 +1,225 @@
+.body{
+    background-color: #4eb3da;
+}
+html{
+    overflow: hidden;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #4eb3da;
+}
+.cloud{
+    position:absolute;
+}
+.cloud.one{
+    width:500px;
+    right: 120%;
+    animation: cloud-one-animation 12s linear 1s infinite alternate forwards;
+}
+.cloud.one.another{
+    width:400px;
+    top: 50%;
+    animation: cloud-two-animation 10s linear 4s infinite alternate forwards;
+}
+.cloud.two{
+    width: 450px;
+    left: -40%;
+    top:30%;
+    animation: cloud-two-animation 17s linear 2s infinite alternate forwards;
+}
+.cloud.three{
+    width:300px;
+    top: 60%;
+    animation: cloud-one-animation 10s  linear 0s infinite alternate forwards;
+}
+.cloud.three.another{
+    width: 500px;
+    top: 20%;
+    animation: cloud-two-animation 15s linear 0s infinite alternate forwards;
+}
+
+.clock-wrapper{
+    width: 630px;
+    height: 630px;
+    position: relative;
+    top: 50%;
+    transform:translateY(-50%);
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.814) 0px 0px 70px 12px, rgba(0, 0, 0, 0.814) 0px 0px 30px 4px inset, rgba(0, 0, 0, 0.814) 0px 0px 4px 4px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border: 30px solid #3593b9;
+    border-radius: 50%;
+    z-index: 3;
+}
+.clock-wrapper .number{
+    height: 520px;
+    position: absolute;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight:900;
+}
+.number span{
+    border-radius: 20px;
+    text-shadow: #254f9d 0px 5px 5px;
+}
+.clock-wrapper .number:nth-child(1){
+    transform: rotate(30deg);
+}
+.clock-wrapper .number:nth-child(1) span{
+    transform: rotate(-30deg);
+}
+
+.clock-wrapper .number:nth-child(2){
+    transform: rotate(60deg);
+}
+.clock-wrapper .number:nth-child(2) span{
+    transform: rotate(-60deg);
+}
+
+.clock-wrapper .number:nth-child(3){
+    transform: rotate(90deg);
+}.clock-wrapper .number:nth-child(3) span{
+    transform: rotate(-90deg);
+}
+
+.clock-wrapper .number:nth-child(4){
+    transform: rotate(120deg);
+}
+.clock-wrapper .number:nth-child(4) span{
+    transform: rotate(-120deg);
+}
+
+.clock-wrapper .number:nth-child(5){
+    transform: rotate(150deg);
+}
+.clock-wrapper .number:nth-child(5) span{
+    transform: rotate(-150deg);
+}
+
+.clock-wrapper .number:nth-child(6){
+    transform: rotate(180deg);
+}
+.clock-wrapper .number:nth-child(6) span{
+    transform: rotate(-180deg);
+}
+.arrow{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+.arrow::after{
+    content: '';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+.second{
+    animation: arrow-animation 60s steps(60, end) 0s infinite normal forwards; 
+}
+.second::after{
+    height: 240px;
+    width: 14px;
+    bottom:-40%;
+    background-image: linear-gradient(#E50A0A, #EDC40D);
+    border: 2px solid black;
+    border-radius: 7px;
+}
+.minute{
+    animation: arrow-animation 3600s linear 0s infinite normal forwards;
+}
+.minute::after{
+    height: 210px;
+    width: 20px;
+    background-image: linear-gradient(#A1C52F, #1C9A57);
+    bottom: 50%;
+    transform: rotate(-50%);
+    border-radius: 10px;
+    border: 3px solid black;
+}
+.hour{
+    animation: arrow-animation 43200s linear 0s infinite normal forwards;
+}
+.hour::after{
+    height: 130px;
+    width: 27px;
+    bottom: 50%;
+    transform: rotate(-50%);
+    border: 4px solid black;
+    background-color: purple;
+    border-radius: 15px;
+}
+.circle{
+    border-radius: 15px;
+    background-image: linear-gradient(#1B4DA4, #062D73);
+    box-shadow: rgba(0, 0, 0, 0.814) 0px 0px 4px 4px, rgba(0, 0, 0, 0.814) 0px 0px 10px 10px;
+    border-radius: 50%;
+}
+.modes{
+    position: absolute;
+    right: 30px;
+    bottom: 5vh;
+}
+.clock-button-wrapper{
+    display:flex;
+    column-gap: 20px;
+}
+.modes h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-shadow: #062D73 5px 5px 5px;
+}
+.clock-button-wrapper button{
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 4px solid black;
+    background-image: linear-gradient(#E50A0A, #EDC40D);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.clock-button-wrapper button:active{
+    transform:scale(1.1);
+}
+/* background-image: linear-gradient(#CFCFCF, #000000); */
+@keyframes arrow-animation{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@keyframes cloud-one-animation{
+    0%{
+        right: 120%;
+    }
+    100%{
+        right: -40%;
+    }
+}
+@keyframes cloud-two-animation{
+    0%{
+        left: 120%;
+    }
+    100%{
+        left: -40%;
+    }
+}
